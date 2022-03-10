@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 const csv_parse_1 = require("csv-parse");
-const mortal = (dwellers, deceased) => (((deceased * 100) / dwellers) * 100).toFixed(2);
+const mortal = (dwellers, deceased) => (((deceased * 100) / dwellers)).toFixed(2);
 const statisticsCovid = (err, data) => {
     if (err) {
         console.log(`Se ha presentado un error en la lectura de los datos: ${err}`);
@@ -65,7 +65,7 @@ const statisticsCovid = (err, data) => {
     console.log("2. Estado con menor acumulado a la fecha");
     console.log(`\tEl estado de ${state_nm_min} con una población de ${dwellers_min}, cuenta con un acumulado de ${state_min} de fallecidos para la fecha de ${curr_date}`);
     console.log(`\tPorcentaje de muertes: ${mortal(dwellers_min, state_min)} %`);
-    console.log(`En conclusión, el estado mas afectado hasta la fecha fue ${state_nm_max} puesto que al contrastar el numero de fallecidos con los demas estados esté los supera.`);
+    console.log(`En conclusión, el estado mas afectado hasta la fecha (${curr_date}) fue ${state_nm_max} puesto que al contrastar el numero de fallecidos con los demas estados, esté los supera.`);
 };
 const parser = (0, csv_parse_1.parse)({
     columns: true,

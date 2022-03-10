@@ -4,7 +4,7 @@ import { parse, CsvError } from "csv-parse";
 
 
 const mortal = (dwellers: number, deceased: number): string => (
-    ((deceased * 100) / dwellers) * 100
+    ((deceased * 100) / dwellers)
 ).toFixed(2);
 
 const statisticsCovid = (err: CsvError | undefined, data: any): void => {
